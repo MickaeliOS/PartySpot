@@ -8,5 +8,6 @@
 import Foundation
 
 final class UserViewModel: ObservableObject {
+    // MARK: - PROPERTIES
     @Published var user: User?
 }

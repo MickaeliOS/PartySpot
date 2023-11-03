@@ -11,13 +11,15 @@ import FirebaseAuth
 
 class CreatePartyViewController: UIViewController {
     
+    // MARK: - OUTLETS & PROPERTIES
     @IBOutlet weak var labelToDelete: UILabel!
     
-    private let input: PassthroughSubject<CreatePartyViewModel.Input, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
     private var viewModel = CreatePartyViewModel()
     private var dataSource: TabBarViewController { tabBarController as! TabBarViewController }
+    private let input: PassthroughSubject<CreatePartyViewModel.Input, Never> = .init()
     
+    // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
@@ -25,6 +27,7 @@ class CreatePartyViewController: UIViewController {
         bindUser()
     }
     
+    // MARK: - ACTIONS
     @IBAction func unwindToRootVC(segue: UIStoryboardSegue) { }
     
     private func loginState() {
@@ -40,6 +43,7 @@ class CreatePartyViewController: UIViewController {
         input.send(.fetchUser(userID: userID))
     }
     
+    // MARK: - FUNCTIONS
     private func bind() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
 
@@ -49,6 +53,7 @@ class CreatePartyViewController: UIViewController {
                 switch event {
                 case .fetchUserDidSucceed(let user):
                     self?.dataSource.userViewModel.user = user
+                    
                 case .fetchUserDidFailed(let error):
                     if let error = error as? FirestoreError {
                         self?.presentErrorAlert(with: error.errorDescription)
@@ -67,13 +72,10 @@ class CreatePartyViewController: UIViewController {
             .store(in: &cancellables)
     }
     
-    func presentLoginViewController() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        
-        if let loginVC = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-            loginVC.delegate = dataSource
-            loginVC.modalPresentationStyle = .fullScreen
-            present(loginVC, animated: true)
+    private func presentLoginViewController() {
+        presentViewController(storyboardName: "Main", viewControllerIdentifier: Constant.VCIdentifiers.loginVC) { [weak self] (vc: LoginViewController) in
+            vc.modalPresentationStyle = .fullScreen
+            vc.delegate = self?.dataSource
         }
     }
 }

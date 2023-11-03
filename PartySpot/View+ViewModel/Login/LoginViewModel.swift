@@ -22,34 +22,56 @@ class LoginViewModel: ObservableObject {
         case fetchUserDidFail(error: Error)
     }
     
+    // MARK: - PROPERTIES
     @Published var isAuthenticated = false
     @Published var errorMessage = ""
     
     var email = ""
     var password = ""
     private var authService: FirebaseAuthServiceProtocol
+    private var cancellables = Set<AnyCancellable>()
     private let firestoreService: FirestoreServiceProtocol
     private let output: PassthroughSubject<Output, Never> = .init()
-    private var cancellables = Set<AnyCancellable>()
     
+    var hasEmptyField: Bool {
+        if email.isReallyEmpty || password.isReallyEmpty {
+            return true
+        }
+        
+        return false
+    }
+
+    // MARK: - INIT
     init(authService: FirebaseAuthServiceProtocol = FirebaseAuthService(),
          firestoreService: FirestoreServiceProtocol = FirestoreService()) {
         self.authService = authService
         self.firestoreService = firestoreService
     }
     
+    // MARK: - FUNCTIONS
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
             .sink { [weak self] event in
                 switch event {
                 case .signInButtonDidTap:
                     self?.authenticate()
+                    
                 case .fetchUser(let userID):
                     self?.handleFetchUser(userID: userID)
                 }
             }
             .store(in: &cancellables)
             return output.eraseToAnyPublisher()
+    }
+    
+    func formCheck() throws {
+        guard hasEmptyField == false else {
+            throw LoginFormError.emptyFields
+        }
+        
+        guard email.isValidEmail() else {
+            throw LoginFormError.badlyFormattedEmail
+        }
     }
     
     private func authenticate() {
@@ -74,7 +96,20 @@ class LoginViewModel: ObservableObject {
                 self?.output.send(.fetchUserDidSucceed(user: user))
             }
             .store(in: &cancellables)
-
     }
 }
 
+// MARK: - LOGIN ERROR
+enum LoginFormError: Error {
+    case badlyFormattedEmail
+    case emptyFields
+
+    var errorDescription: String {
+        switch self {
+        case .badlyFormattedEmail:
+            return "Badly formatted email, please provide a correct one."
+        case .emptyFields:
+            return "All fields must be filled."
+        }
+    }
+}

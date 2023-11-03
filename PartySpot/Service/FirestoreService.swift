@@ -9,13 +9,14 @@ import Combine
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+// MARK: - PROTOCOL
 protocol FirestoreServiceProtocol {
     func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, Error>
     func fetchUser(userID: String) -> AnyPublisher<User, Error>
 }
 
+// MARK: - CLASS
 class FirestoreService: FirestoreServiceProtocol {
-    
     func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, Error> {
         return Future<Void, Error> { promise in
             let docRef = Firestore
@@ -59,6 +60,7 @@ class FirestoreService: FirestoreServiceProtocol {
     }
 }
 
+// MARK: - ERROR HANDLING
 enum FirestoreError: Error {
     case documentNotFound
     case invalidUserData

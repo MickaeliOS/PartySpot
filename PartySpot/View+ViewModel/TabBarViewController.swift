@@ -8,8 +8,10 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
+    // MARK: - PROPERTIES
     var userViewModel = UserViewModel()
 
+    // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,10 +19,12 @@ class TabBarViewController: UITabBarController {
     }
 }
 
+// MARK: - PROTOCOLS
 protocol UserDelegate: AnyObject {
     func sendUser(user: User)
 }
 
+// MARK: - EXTENSIONS
 extension TabBarViewController: UserDelegate {
     func sendUser(user: User) {
         userViewModel.user = user

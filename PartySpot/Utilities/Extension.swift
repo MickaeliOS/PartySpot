@@ -14,6 +14,15 @@ extension String {
     var isReallyEmpty: Bool {
         self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
+    
+    func isValidEmail() -> Bool {
+        // Firebase already warns us about badly formatted email addresses, but this involves a network call.
+        // To help with Green Code, I prefer to handle the email format validation myself.
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: self)
+    }
 }
 
 // MARK: - UIKIT EXTENTIONS
@@ -31,6 +40,15 @@ extension UIViewController {
         
         present(vc, animated: true) {
             vc.presentErrorAlert(with: error)
+        }
+    }
+    
+    func presentViewController<T: UIViewController>(storyboardName: String, viewControllerIdentifier: String, configure: ((T) -> Void)? = nil) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        
+        if let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as? T {
+            configure?(viewController)
+            present(viewController, animated: true)
         }
     }
     

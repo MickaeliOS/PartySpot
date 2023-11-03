@@ -9,6 +9,7 @@ import Foundation
 
 enum Constant {
     
+    // MARK: - FIRESTORE TABLES
     enum FirestoreTables {
         
         enum User {
@@ -22,8 +23,14 @@ enum Constant {
         }
     }
     
+    // MARK: - SEGUE IDENTIFIERS
     enum SegueIdentifiers {
         static let unwindToRootVC = "unwindToRootVC"
         static let segueToCreateAccountViewController = "segueToCreateAccountViewController"
+    }
+    
+    // MARK: - VIEW CONROLLER IDENTIFIERS
+    enum VCIdentifiers {
+        static let loginVC = "LoginViewController"
     }
 }

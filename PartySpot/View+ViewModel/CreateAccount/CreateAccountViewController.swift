@@ -19,12 +19,12 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var createAccountButton: UIButton!
     
-    // MARK: - VARIABLES & CONST
+    // MARK: - PROPERTIES
     var viewModel = CreateAccountViewModel()
     weak var delegate: UserDelegate?
-    private let input: PassthroughSubject<CreateAccountViewModel.Input, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
     private var isPasswordVisible = false
+    private let input: PassthroughSubject<CreateAccountViewModel.Input, Never> = .init()
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {

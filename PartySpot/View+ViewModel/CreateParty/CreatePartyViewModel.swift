@@ -5,11 +5,12 @@
 //  Created by Mickaël Horn on 19/10/2023.
 //
 
-import Foundation
 import Combine
 import UIKit
 
 final class CreatePartyViewModel: ObservableObject {
+    
+    // MARK: - INPUT & OUTPUT
     enum Input {
         case fetchUser(userID: String)
     }
@@ -19,14 +20,17 @@ final class CreatePartyViewModel: ObservableObject {
         case fetchUserDidFailed(error: Error)
     }
     
+    // MARK: - PROPERTIES
     private let firestoreService: FirestoreServiceProtocol
     private let output: PassthroughSubject<Output, Never> = .init()
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - INIT
     init(firestoreService: FirestoreServiceProtocol = FirestoreService()) {
         self.firestoreService = firestoreService
     }
     
+    // MARK: - FUNCTIONS
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input.sink { [weak self] event in
             switch event {
@@ -35,6 +39,7 @@ final class CreatePartyViewModel: ObservableObject {
             }
         }
         .store(in: &cancellables)
+        
         return output.eraseToAnyPublisher()
     }
     
@@ -49,5 +54,4 @@ final class CreatePartyViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
 }

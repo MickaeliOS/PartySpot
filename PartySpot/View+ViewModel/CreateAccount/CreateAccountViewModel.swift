@@ -60,6 +60,7 @@ final class CreateAccountViewModel: ObservableObject {
                 switch event {
                 case .createAccountButtonDidTap:
                     self?.handleCreateAccount()
+                    
                 case .saveUserInDatabase(let userID):
                     self?.handleSaveUserInDatabase(userID: userID)
                 }
@@ -103,7 +104,7 @@ final class CreateAccountViewModel: ObservableObject {
             throw CreationFormError.emptyFields
         }
         
-        guard isValidEmail(email) else {
+        guard email.isValidEmail() else {
             throw CreationFormError.badlyFormattedEmail
         }
         
@@ -114,15 +115,6 @@ final class CreateAccountViewModel: ObservableObject {
         guard passwordEqualityCheck(password: password, confirmPassword: confirmPassword) else {
             throw CreationFormError.passwordsNotEquals
         }
-    }
-    
-    private func isValidEmail(_ email: String) -> Bool {
-        // Firebase already warns us about badly formatted email addresses, but this involves a network call.
-        // To help with Green Code, I prefer to handle the email format validation myself.
-        
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
     }
     
     private func isValidPassword(_ password: String) -> Bool {

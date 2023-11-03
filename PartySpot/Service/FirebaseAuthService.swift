@@ -5,15 +5,16 @@
 //  Created by Mickaël Horn on 16/10/2023.
 //
 
-import Foundation
 import FirebaseAuth
 import Combine
 
+// MARK: - PROTOCOL
 protocol FirebaseAuthServiceProtocol {
     func createAccount(email: String, password: String) -> Future<String, Error>
     func signIn(email: String, password: String) -> Future<String, Error>
 }
 
+// MARK: - CLASS
 final class FirebaseAuthService: FirebaseAuthServiceProtocol {
     func createAccount(email: String, password: String) -> Future<String, Error> {
         return Future { promise in
@@ -55,6 +56,7 @@ final class FirebaseAuthService: FirebaseAuthServiceProtocol {
     }
 }
 
+// MARK: - ERROR HANDLING
 enum FirebaseAuthServiceError: Error {
     case invalidCredentials
     case networkError
