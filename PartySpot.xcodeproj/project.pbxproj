@@ -99,10 +99,10 @@
 		83603BD92AD8735C00EA47F1 /* PartySpot */ = {
 			isa = PBXGroup;
 			children = (
-				83DEB9C42AE086A2009A44E1 /* Utilities */,
-				83603BEE2AD8741200EA47F1 /* Model */,
 				83603BEF2AD8741700EA47F1 /* View+ViewModel */,
+				83603BEE2AD8741200EA47F1 /* Model */,
 				83603C092ADD20C000EA47F1 /* Service */,
+				83DEB9C42AE086A2009A44E1 /* Utilities */,
 				83603BF12AD8742000EA47F1 /* Resources */,
 			);
 			path = PartySpot;

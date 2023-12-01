@@ -23,7 +23,6 @@ class CreateAccountViewController: UIViewController {
     var viewModel = CreateAccountViewModel()
     weak var delegate: UserDelegate?
     private var cancellables = Set<AnyCancellable>()
-    private var isPasswordVisible = false
     private let input: PassthroughSubject<CreateAccountViewModel.Input, Never> = .init()
     
     // MARK: - VIEW LIFE CYCLE
@@ -55,6 +54,10 @@ class CreateAccountViewController: UIViewController {
             let gender = User.Gender(rawValue: title) ?? .male
             viewModel.gender = gender
         }
+    }
+    
+    @IBAction func closeButtonDidTapped(_ sender: Any) {
+        dismiss(animated: true)
     }
     
     // MARK: - FUNCTIONS

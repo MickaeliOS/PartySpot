@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextFields()
         outletsBind()
         bind()
     }
@@ -44,6 +45,17 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - FUNCTIONS
+    private func setupTextFields() {
+        passwordTextField.addPasswordToggleButton(target: self,
+                                                  action: #selector(togglePasswordVisibility))
+        
+        guard let personImage = UIImage(systemName: "person.fill"),
+              let passwordLockImage = UIImage(systemName: "lock.fill") else { return }
+        
+        emailTextField.addLeftSystemImage(image: personImage)
+        passwordTextField.addLeftSystemImage(image: passwordLockImage)
+    }
+    
     private func bind() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
 
@@ -83,6 +95,14 @@ class LoginViewController: UIViewController {
             .compactMap { ($0.object as? UITextField)?.text }
             .assign(to: keyPath, on: viewModel)
             .store(in: &cancellables)
+    }
+    
+    @objc func togglePasswordVisibility(_ sender: UIButton) {
+        guard let textFieldContainer = sender.superview,
+              let textField = textFieldContainer.superview as? UITextField else { return }
+        
+        textField.isPasswordVisible.toggle()
+        sender.togglePasswordVisibilityImage(isVisible: textField.isPasswordVisible)
     }
 }
 
