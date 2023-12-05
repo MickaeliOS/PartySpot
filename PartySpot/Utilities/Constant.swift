@@ -7,6 +7,11 @@
 
 import Foundation
 
+// Avoid making a Constants file with all your static strings.
+// It will become a mess
+// Move each one in their class
+// For example here FirestoreTables constants would be better in your firestore classes (services) and put them private.
+// Or for lastname constants, put them in your firestore DTO (User model here) instead
 enum Constant {
     
     // MARK: - FIRESTORE TABLES

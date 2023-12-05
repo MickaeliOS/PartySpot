@@ -8,9 +8,11 @@
 import UIKit
 import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+// Put `final` as possible
+final class ProfileViewController: UIViewController {
     // MARK: - PROPERTIES
     private var dataSource: TabBarViewController { tabBarController as! TabBarViewController }
+    // Try to avoid implicit unwrap `!` to avoid app crashes
 
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {

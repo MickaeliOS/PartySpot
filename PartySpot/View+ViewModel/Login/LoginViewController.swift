@@ -8,13 +8,14 @@
 import UIKit
 import Combine
 
-class LoginViewController: UIViewController {
-    
+final class LoginViewController: UIViewController {
+
     // MARK: - OUTLETS & PROPERTIES
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signinButton: UIButton!
     
+    // Must be private
     var viewModel = LoginViewModel()
     weak var delegate: UserDelegate?
     private var cancellables = Set<AnyCancellable>()
@@ -76,7 +77,7 @@ class LoginViewController: UIViewController {
                     self?.performSegue(withIdentifier: Constant.SegueIdentifiers.unwindToRootVC, sender: nil)
                     
                 case .fetchUserDidFail(let error):
-                    if let error = error as? FirestoreError {
+                    if let error = error as? FirestoreService.Error {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                 }

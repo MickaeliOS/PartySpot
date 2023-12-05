@@ -9,12 +9,17 @@ import UIKit
 import Combine
 import Foundation
 
+// Make one file per type extension
+// String+Extensions.swift
+// UIViewController+Extensions.swift
+
 // MARK: - LOGIC EXTENTIONS
 extension String {
     var isReallyEmpty: Bool {
         self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
+    // Shouldn't be here, it is a business func, it place is either in a VM or in a service or UseCase or whatever.
     func isValidEmail() -> Bool {
         // Firebase already warns us about badly formatted email addresses, but this involves a network call.
         // To help with Green Code, I prefer to handle the email format validation myself.
@@ -46,6 +51,7 @@ extension UIViewController {
     func presentViewController<T: UIViewController>(storyboardName: String, viewControllerIdentifier: String, configure: ((T) -> Void)? = nil) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         
+        // If viewController is nil, what happen? You will never be aware of that bug. The user will tap on the button and nothing happen
         if let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as? T {
             configure?(viewController)
             present(viewController, animated: true)

@@ -26,6 +26,13 @@ protocol UserDelegate: AnyObject {
 
 // MARK: - EXTENSIONS
 extension TabBarViewController: UserDelegate {
+    // func sendUser(_ user: User) {
+    // to avoid:
+    // let user = User()
+    // sendUser(user: user)
+    // `user` 3 times...
+    // Also the func naming do not tell anything, send send to what? for what?
+    // Shouldn't be an TabBarController func as well, more in a service or viewModel
     func sendUser(user: User) {
         userViewModel.user = user
     }

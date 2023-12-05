@@ -28,7 +28,7 @@ class FirestoreService: FirestoreServiceProtocol {
                 try docRef.setData(from: user)
                 promise(.success(()))
             } catch {
-                promise(.failure(FirestoreError.defaultError))
+                promise(.failure(Error.defaultError))
             }
         }.eraseToAnyPublisher()
     }
@@ -44,7 +44,7 @@ class FirestoreService: FirestoreServiceProtocol {
                 }
                 
                 guard let documentSnapshot = documentSnapshot else {
-                    promise(.failure(FirestoreError.documentNotFound))
+                    promise(.failure(Error.documentNotFound))
                     return
                 }
                 
@@ -53,29 +53,51 @@ class FirestoreService: FirestoreServiceProtocol {
                     promise(.success(user))
                 } catch {
                     print(error)
-                    promise(.failure(FirestoreError.invalidUserData))
+                    promise(.failure(Error.invalidUserData))
                 }
             }
         }.eraseToAnyPublisher()
     }
 }
 
-// MARK: - ERROR HANDLING
-enum FirestoreError: Error {
-    case documentNotFound
-    case invalidUserData
-    case defaultError
-}
 
-extension FirestoreError {
-    var errorDescription: String {
-        switch self {
-        case .documentNotFound:
-            return "Document not found."
-        case .invalidUserData:
-            return "The user data are invalid."
-        case .defaultError:
-            return "Something went wrong"
+// Suggestion to avoid having the FirestoreError type accessible directly
+extension FirestoreService {
+    
+    enum Error: Swift.Error {
+        case documentNotFound
+        case invalidUserData
+        case defaultError
+
+        var errorDescription: String {
+            switch self {
+            case .documentNotFound:
+                return "Document not found."
+            case .invalidUserData:
+                return "The user data are invalid."
+            case .defaultError:
+                return "Something went wrong"
+            }
         }
     }
 }
+
+// MARK: - ERROR HANDLING
+//enum FirestoreError: Error {
+//    case documentNotFound
+//    case invalidUserData
+//    case defaultError
+//}
+//
+//extension FirestoreError {
+//    var errorDescription: String {
+//        switch self {
+//        case .documentNotFound:
+//            return "Document not found."
+//        case .invalidUserData:
+//            return "The user data are invalid."
+//        case .defaultError:
+//            return "Something went wrong"
+//        }
+//    }
+//}
