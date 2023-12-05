@@ -13,7 +13,9 @@ final class CreateAccountViewModel: ObservableObject {
     // MARK: - INPUT & OUTPUT
     enum Input {
         case createAccountButtonDidTap
+        // Bad naming: saveUser is better because the VC shouldn't know where the user is stored. Database, of file, or somewhere else, VC doesn't care about
         case saveUserInDatabase(userID: String)
+        // Why not having all textfields input here? If you put them here, you will make all your properties private (see below)
     }
     
     enum Output {
@@ -24,7 +26,8 @@ final class CreateAccountViewModel: ObservableObject {
     }
     
     // MARK: - PROPERTIES
-    var lastname: String = ""
+    // They should be private
+    var lastname: String = "" // Is empty a good value for you? Why? IMO, if no lastname is been entered, it should be nil, not empty. The textfield's text property is an Optional of String: https://developer.apple.com/documentation/uikit/uitextfield/1619635-text, same for UILabel. Same for the others
     var firstname: String = ""
     var gender: User.Gender = .male
     var birthdate: Date = Date.now

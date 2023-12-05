@@ -22,16 +22,16 @@ class CreatePartyViewController: UIViewController {
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
+        bind() // Bind quoi ?
         loginState()
-        bindUser()
+        bindUser() // Bind user ici. Pas deja fait dans le bind ? Pb de nommage pour bind car on ne sait pas qu'est ce qu'il bind
     }
     
     // MARK: - ACTIONS
     @IBAction func unwindToRootVC(segue: UIStoryboardSegue) { }
     
     private func loginState() {
-        if Auth.auth().currentUser == nil {
+        if Auth.auth().currentUser == nil { // Pourquoi ne pas laisser le VM faire ce calcul ?
             presentLoginViewController()
             return
         }

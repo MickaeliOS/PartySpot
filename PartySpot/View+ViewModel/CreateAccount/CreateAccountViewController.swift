@@ -11,16 +11,19 @@ import Combine
 class CreateAccountViewController: UIViewController {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var firstnameTextField: UITextField!
-    @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var createAccountButton: UIButton!
-    
+    // All your IBOutlets should be private
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var firstnameTextField: UITextField!
+    @IBOutlet private weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var confirmPasswordTextField: UITextField!
+    @IBOutlet private weak var createAccountButton: UIButton!
+
     // MARK: - PROPERTIES
+    // Your viewModel should be private
     var viewModel = CreateAccountViewModel()
+    // Delegate of what? Maybe put the naming `userDelegate` instead?
     weak var delegate: UserDelegate?
     private var cancellables = Set<AnyCancellable>()
     private let input: PassthroughSubject<CreateAccountViewModel.Input, Never> = .init()
@@ -34,7 +37,8 @@ class CreateAccountViewController: UIViewController {
     }
     
     // MARK: - ACTIONS
-    @IBAction func createAccountButtonTapped(_ sender: Any) {
+    // All your IBActions should be private
+    @IBAction private func createAccountButtonTapped(_ sender: Any) {
         do {
             try viewModel.formCheck()
             input.send(.createAccountButtonDidTap)
@@ -55,12 +59,13 @@ class CreateAccountViewController: UIViewController {
             viewModel.gender = gender
         }
     }
-    
-    @IBAction func closeButtonDidTapped(_ sender: Any) {
+
+    @IBAction private func closeButtonDidTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
     // MARK: - FUNCTIONS
+    // Bind what? Be more specific
     private func bind() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         
@@ -81,7 +86,7 @@ class CreateAccountViewController: UIViewController {
                     self?.performSegue(withIdentifier: Constant.SegueIdentifiers.unwindToRootVC, sender: user)
                     
                 case .saveUserInDatabaseDidFail(let error):
-                    if let error = error as? FirestoreError {
+                    if let error = error as? FirestoreService.Error {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                 }
@@ -89,6 +94,7 @@ class CreateAccountViewController: UIViewController {
             .store(in: &cancellables)
     }
     
+    // Verb first: bindOutlets()
     private func outletsBind() {
         bindTextField(nameTextField, to: \.lastname)
         bindTextField(firstnameTextField, to: \.firstname)
@@ -123,7 +129,8 @@ class CreateAccountViewController: UIViewController {
         confirmPasswordTextField.addLeftSystemImage(image: passwordLockImage)
     }
     
-    @objc func togglePasswordVisibility(_ sender: UIButton) {
+    @objc
+    private func togglePasswordVisibility(_ sender: UIButton) {
         guard let textFieldContainer = sender.superview,
               let textField = textFieldContainer.superview as? UITextField else { return }
         
