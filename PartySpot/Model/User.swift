@@ -8,6 +8,14 @@
 import Foundation
 
 struct User: Codable {
+    enum UserTable {
+        static let lastname = "lastname"
+        static let firstname = "firstname"
+        static let age = "age"
+        static let gender = "gender"
+        static let email = "email"
+    }
+    
     enum Gender: String, Codable {
         case male = "Male"
         case female = "Female"

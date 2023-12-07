@@ -21,12 +21,12 @@ class TabBarViewController: UITabBarController {
 
 // MARK: - PROTOCOLS
 protocol UserDelegate: AnyObject {
-    func sendUser(user: User)
+    func saveUserLocally(user: User)
 }
 
 // MARK: - EXTENSIONS
 extension TabBarViewController: UserDelegate {
-    func sendUser(user: User) {
+    func saveUserLocally(user: User) {
         userViewModel.user = user
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ixz-He-mkZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ixz-He-mkZ">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -230,13 +231,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="confirmPasswordTextField" destination="aYw-Vc-hZB" id="qZ5-Bb-suH"/>
-                        <outlet property="createAccountButton" destination="KPU-VA-YI3" id="V0w-Yu-Wgf"/>
-                        <outlet property="emailTextField" destination="8ZT-7j-zc5" id="zdI-0Y-nqd"/>
-                        <outlet property="firstnameTextField" destination="TTZ-nh-D2m" id="c4B-ze-OFJ"/>
-                        <outlet property="genderSegmentedControl" destination="ze1-Qb-lqi" id="sKe-Hc-aPG"/>
-                        <outlet property="nameTextField" destination="oms-f9-vvh" id="x8W-vs-1WE"/>
-                        <outlet property="passwordTextField" destination="OTw-3I-I7N" id="ss3-wY-KuF"/>
+                        <outlet property="confirmPasswordTextField" destination="aYw-Vc-hZB" id="lyZ-Qd-mId"/>
+                        <outlet property="createAccountButton" destination="KPU-VA-YI3" id="6kE-hW-Ugc"/>
+                        <outlet property="emailTextField" destination="8ZT-7j-zc5" id="fyP-UJ-fGg"/>
+                        <outlet property="firstnameTextField" destination="TTZ-nh-D2m" id="ACU-et-NAg"/>
+                        <outlet property="genderSegmentedControl" destination="ze1-Qb-lqi" id="iWp-dt-aT6"/>
+                        <outlet property="nameTextField" destination="oms-f9-vvh" id="sdG-TP-kbd"/>
+                        <outlet property="passwordTextField" destination="OTw-3I-I7N" id="H53-mE-wIF"/>
                         <segue destination="JTW-89-gpU" kind="unwind" identifier="unwindToRootVC" unwindAction="unwindToRootVCWithSegue:" id="uVn-ek-nPB"/>
                     </connections>
                 </viewController>
@@ -369,7 +370,7 @@
             <color red="0.94099998474121094" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="importantElement">
-            <color red="0.71764705882352942" green="0.43137254901960786" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.71799999475479126" green="0.4309999942779541" blue="0.47499999403953552" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="modalBackground">
             <color red="0.94099998474121094" green="0.94099998474121094" blue="0.94099998474121094" alpha="0.84600001573562622" colorSpace="custom" customColorSpace="sRGB"/>

@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import FirebaseAuth
 
-class CreatePartyViewController: UIViewController {
+final class CreatePartyViewController: UIViewController {
     
     // MARK: - OUTLETS & PROPERTIES
     @IBOutlet weak var labelToDelete: UILabel!
@@ -17,12 +17,14 @@ class CreatePartyViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     private var viewModel = CreatePartyViewModel()
     private var dataSource: TabBarViewController { tabBarController as! TabBarViewController }
+    
+    let loginVC = "LoginViewController"
     private let input: PassthroughSubject<CreatePartyViewModel.Input, Never> = .init()
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
+        bindToViewModel()
         loginState()
         bindUser()
     }
@@ -44,7 +46,7 @@ class CreatePartyViewController: UIViewController {
     }
     
     // MARK: - FUNCTIONS
-    private func bind() {
+    private func bindToViewModel() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
 
         output
@@ -55,7 +57,7 @@ class CreatePartyViewController: UIViewController {
                     self?.dataSource.userViewModel.user = user
                     
                 case .fetchUserDidFailed(let error):
-                    if let error = error as? FirestoreError {
+                    if let error = error as? FirestoreService.FirestoreError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                 }
@@ -73,9 +75,9 @@ class CreatePartyViewController: UIViewController {
     }
     
     private func presentLoginViewController() {
-        presentViewController(storyboardName: "Main", viewControllerIdentifier: Constant.VCIdentifiers.loginVC) { [weak self] (vc: LoginViewController) in
+        presentViewController(storyboardName: "Main", viewControllerIdentifier: loginVC) { [weak self] (vc: LoginViewController) in
             vc.modalPresentationStyle = .fullScreen
-            vc.delegate = self?.dataSource
+            vc.userDelegate = self?.dataSource
         }
     }
 }

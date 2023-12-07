@@ -17,29 +17,36 @@ protocol FirestoreServiceProtocol {
 
 // MARK: - CLASS
 class FirestoreService: FirestoreServiceProtocol {
+    let tableName = "User"
+
     func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, Error> {
         return Future<Void, Error> { promise in
             let docRef = Firestore
                 .firestore()
-                .collection(Constant.FirestoreTables.User.tableName)
+                .collection(self.tableName)
                 .document(userID)
             
             do {
                 try docRef.setData(from: user)
                 promise(.success(()))
             } catch {
-                promise(.failure(FirestoreError.defaultError))
+                promise(.failure(error))
             }
         }.eraseToAnyPublisher()
     }
     
     func fetchUser(userID: String) -> AnyPublisher<User, Error> {
         return Future<User, Error> { promise in
-            let docRef = Firestore.firestore().collection(Constant.FirestoreTables.User.tableName).document(userID)
+            let docRef = Firestore.firestore().collection(self.tableName).document(userID)
             docRef.getDocument { documentSnapshot, error in
                 
-                if let error = error {
+                /*if let error = error {
                     promise(.failure(error))
+                    return
+                }*/
+                
+                if error != nil {
+                    promise(.failure(FirestoreError.defaultError))
                     return
                 }
                 
@@ -60,22 +67,23 @@ class FirestoreService: FirestoreServiceProtocol {
     }
 }
 
-// MARK: - ERROR HANDLING
-enum FirestoreError: Error {
-    case documentNotFound
-    case invalidUserData
-    case defaultError
-}
-
-extension FirestoreError {
-    var errorDescription: String {
-        switch self {
-        case .documentNotFound:
-            return "Document not found."
-        case .invalidUserData:
-            return "The user data are invalid."
-        case .defaultError:
-            return "Something went wrong"
+extension FirestoreService {
+    // MARK: - ERROR HANDLING
+    enum FirestoreError: Error {
+        case documentNotFound
+        case invalidUserData
+        case defaultError
+        
+        var errorDescription: String {
+            switch self {
+            case .documentNotFound:
+                return "Document not found."
+            case .invalidUserData:
+                return "The user data are invalid."
+            case .defaultError:
+                return "Something went wrong"
+            }
         }
     }
 }
+

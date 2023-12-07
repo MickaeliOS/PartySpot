@@ -8,16 +8,19 @@
 import UIKit
 import Combine
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     // MARK: - OUTLETS & PROPERTIES
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signinButton: UIButton!
     
-    var viewModel = LoginViewModel()
-    weak var delegate: UserDelegate?
+    weak var userDelegate: UserDelegate?
+    private var viewModel = LoginViewModel()
     private var cancellables = Set<AnyCancellable>()
+    
+    let unwindToRootVC = "unwindToRootVC"
+    let segueToCreateAccountViewController = "segueToCreateAccountViewController"
     private let input: PassthroughSubject<LoginViewModel.Input, Never> = .init()
 
     // MARK: - VIEW LIFE CYCLE
@@ -41,7 +44,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: Constant.SegueIdentifiers.segueToCreateAccountViewController, sender: nil)
+        performSegue(withIdentifier: segueToCreateAccountViewController, sender: nil)
     }
     
     // MARK: - FUNCTIONS
@@ -72,11 +75,11 @@ class LoginViewController: UIViewController {
                     }
                     
                 case .fetchUserDidSucceed(let user):
-                    self?.delegate?.sendUser(user: user)
-                    self?.performSegue(withIdentifier: Constant.SegueIdentifiers.unwindToRootVC, sender: nil)
+                    self?.userDelegate?.saveUserLocally(user: user)
+                    self?.performSegue(withIdentifier: self?.unwindToRootVC ?? "unwindToRootVC", sender: nil)
                     
                 case .fetchUserDidFail(let error):
-                    if let error = error as? FirestoreError {
+                    if let error = error as? FirestoreService.FirestoreError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                 }
@@ -109,9 +112,9 @@ class LoginViewController: UIViewController {
 // MARK: - EXTENSIONS
 extension LoginViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.SegueIdentifiers.segueToCreateAccountViewController {
+        if segue.identifier == segueToCreateAccountViewController {
             let createAccountVC = segue.destination as? CreateAccountViewController
-            createAccountVC?.delegate = delegate
+            createAccountVC?.userDelegate = userDelegate
         }
     }
 }

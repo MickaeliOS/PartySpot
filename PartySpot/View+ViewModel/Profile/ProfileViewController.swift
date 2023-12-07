@@ -8,9 +8,10 @@
 import UIKit
 import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     // MARK: - PROPERTIES
     private var dataSource: TabBarViewController { tabBarController as! TabBarViewController }
+    let loginVC = "LoginViewController"
 
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -25,9 +26,9 @@ class ProfileViewController: UIViewController {
     
     // MARK: - FUNCTIONS
     func presentLoginViewController() {
-        presentViewController(storyboardName: "Main", viewControllerIdentifier: Constant.VCIdentifiers.loginVC) { [weak self] (vc: LoginViewController) in
+        presentViewController(storyboardName: "Main", viewControllerIdentifier: loginVC) { [weak self] (vc: LoginViewController) in
             vc.modalPresentationStyle = .fullScreen
-            vc.delegate = self?.dataSource
+            vc.userDelegate = self?.dataSource
         }
     }
 }

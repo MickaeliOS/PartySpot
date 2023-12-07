@@ -13,7 +13,7 @@ final class CreateAccountViewModel: ObservableObject {
     // MARK: - INPUT & OUTPUT
     enum Input {
         case createAccountButtonDidTap
-        case saveUserInDatabase(userID: String)
+        case saveUser(userID: String)
     }
     
     enum Output {
@@ -61,7 +61,7 @@ final class CreateAccountViewModel: ObservableObject {
                 case .createAccountButtonDidTap:
                     self?.handleCreateAccount()
                     
-                case .saveUserInDatabase(let userID):
+                case .saveUser(let userID):
                     self?.handleSaveUserInDatabase(userID: userID)
                 }
             }

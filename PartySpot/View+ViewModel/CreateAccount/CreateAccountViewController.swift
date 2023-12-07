@@ -8,33 +8,35 @@
 import UIKit
 import Combine
 
-class CreateAccountViewController: UIViewController {
+final class CreateAccountViewController: UIViewController {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var firstnameTextField: UITextField!
-    @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var firstnameTextField: UITextField!
+    @IBOutlet private weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var confirmPasswordTextField: UITextField!
+    @IBOutlet private weak var createAccountButton: UIButton!
     
     // MARK: - PROPERTIES
-    var viewModel = CreateAccountViewModel()
-    weak var delegate: UserDelegate?
+    weak var userDelegate: UserDelegate?
+    private var viewModel = CreateAccountViewModel()
     private var cancellables = Set<AnyCancellable>()
+    
+    let unwindToRootVC = "unwindToRootVC"
     private let input: PassthroughSubject<CreateAccountViewModel.Input, Never> = .init()
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFields()
-        bind()
-        outletsBind()
+        bindToViewModel()
+        bindOutlets()
     }
     
     // MARK: - ACTIONS
-    @IBAction func createAccountButtonTapped(_ sender: Any) {
+    @IBAction private func createAccountButtonTapped(_ sender: Any) {
         do {
             try viewModel.formCheck()
             input.send(.createAccountButtonDidTap)
@@ -56,12 +58,12 @@ class CreateAccountViewController: UIViewController {
         }
     }
     
-    @IBAction func closeButtonDidTapped(_ sender: Any) {
+    @IBAction private func closeButtonDidTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
     // MARK: - FUNCTIONS
-    private func bind() {
+    private func bindToViewModel() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
         
         output
@@ -69,7 +71,7 @@ class CreateAccountViewController: UIViewController {
             .sink { [weak self] event in
                 switch event {
                 case .createAccountDidSucceed(let userID):
-                    self?.input.send(.saveUserInDatabase(userID: userID))
+                    self?.input.send(.saveUser(userID: userID))
                     
                 case .createAccountDidFail(let error):
                     if let error = error as? FirebaseAuthServiceError {
@@ -77,11 +79,11 @@ class CreateAccountViewController: UIViewController {
                     }
                     
                 case .saveUserInDatabaseDidSucceed(let user):
-                    self?.delegate?.sendUser(user: user)
-                    self?.performSegue(withIdentifier: Constant.SegueIdentifiers.unwindToRootVC, sender: user)
+                    self?.userDelegate?.saveUserLocally(user: user)
+                    self?.performSegue(withIdentifier: self?.unwindToRootVC ?? "unwindToRootVC", sender: user)
                     
                 case .saveUserInDatabaseDidFail(let error):
-                    if let error = error as? FirestoreError {
+                    if let error = error as? FirestoreService.FirestoreError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                 }
@@ -89,7 +91,7 @@ class CreateAccountViewController: UIViewController {
             .store(in: &cancellables)
     }
     
-    private func outletsBind() {
+    private func bindOutlets() {
         bindTextField(nameTextField, to: \.lastname)
         bindTextField(firstnameTextField, to: \.firstname)
         bindTextField(emailTextField, to: \.email)
@@ -123,7 +125,7 @@ class CreateAccountViewController: UIViewController {
         confirmPasswordTextField.addLeftSystemImage(image: passwordLockImage)
     }
     
-    @objc func togglePasswordVisibility(_ sender: UIButton) {
+    @objc private func togglePasswordVisibility(_ sender: UIButton) {
         guard let textFieldContainer = sender.superview,
               let textField = textFieldContainer.superview as? UITextField else { return }
         
