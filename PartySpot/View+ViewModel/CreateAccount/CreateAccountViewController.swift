@@ -21,7 +21,12 @@ final class CreateAccountViewController: UIViewController {
     
     // MARK: - PROPERTIES
     weak var userDelegate: UserDelegate?
-    private var viewModel = CreateAccountViewModel()
+    // ViewModel toujours en private let, sinon pb de conception
+    private let viewModel = CreateAccountViewModel()
+
+    // Preference perso : je nomme mes cancellables `subscriptions` car on nomme nos variable pas pour ce qu'elles font (etre cancel)
+    // mais pour ce qu'elles sont: des subscriptions. Ca devient encore plus clair qu'on ecrit: `subscription.cancel()`
+    // C'est a toi de choisir ce que tu preferes ;)
     private var cancellables = Set<AnyCancellable>()
     
     let unwindToRootVC = "unwindToRootVC"
@@ -70,9 +75,10 @@ final class CreateAccountViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
                 switch event {
-                case .createAccountDidSucceed(let userID):
-                    self?.input.send(.saveUser(userID: userID))
-                    
+                case .idle: break
+                case .createAccountDidSucceed:
+                    break // Cf ma proposition d'enum pour eviter de handle ces cas pour rien
+
                 case .createAccountDidFail(let error):
                     if let error = error as? FirebaseAuthServiceError {
                         self?.presentErrorAlert(with: error.errorDescription)
