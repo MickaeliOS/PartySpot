@@ -41,6 +41,7 @@ final class CreateAccountViewModel: ObservableObject {
 
     private let authService: FirebaseAuthServiceProtocol
     private let firestoreService: FirestoreServiceProtocol
+    // Optional, we can just return the publisher in the transform method. No need to save it in a property
     @Published private(set) var output: Output = .idle
     private var cancellables = Set<AnyCancellable>()
     
@@ -67,7 +68,7 @@ final class CreateAccountViewModel: ObservableObject {
         //
         // 1st option
         //
-        Publishers.CombineLatest(
+        return Publishers.CombineLatest(
             $email.filter { !$0.isEmpty }, // filter any wrong email by calling any validating method to check email
             $password.filter { !$0.isEmpty } // same here for password
         )
@@ -83,12 +84,15 @@ final class CreateAccountViewModel: ObservableObject {
                 .map { userId in Output.createAccountDidSucceed(userID: userId) }
                 .catch { error in Just(Output.createAccountDidFail(error: error)).eraseToAnyPublisher() }
         }
-        .assign(to: &$output)
+        .eraseToAnyPublisher()
+        // No need to save it, only return it to your VC
+//        .receive(on: DispatchQueue.main)
+//        .assign(to: &$output)
 
         //
         // 2nde option
         //
-//        input
+//        return input
 //            .filter { $0 == .createAccountButtonDidTap }
 //            .flatMap { [authService, weak self] _ in
 //                guard let self else {
@@ -103,6 +107,9 @@ final class CreateAccountViewModel: ObservableObject {
 //                    .catch { error in Just(Output.createAccountDidFail(error: error)) }
 //                    .eraseToAnyPublisher()
 //            }
+//            .eraseToAnyPublisher()
+        // Same here
+//            .receive(on: DispatchQueue.main)
 //            .assign(to: &$output)
 
         //
@@ -129,8 +136,6 @@ final class CreateAccountViewModel: ObservableObject {
 //                self?.output = result
 //            }
 //            .store(in: &cancellables)
-
-        return $output.eraseToAnyPublisher()
     }
 
     private func handleSaveUserInDatabase(userID: String) {
