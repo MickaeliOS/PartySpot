@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 
 // MARK: - PROTOCOL
 protocol FirestoreServiceProtocol {
-    func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, Error>
+    func saveUserInDatabase(userID: String, user: User) throws
     func fetchUser(userID: String) -> AnyPublisher<User, Error>
 }
 
@@ -19,20 +19,13 @@ protocol FirestoreServiceProtocol {
 class FirestoreService: FirestoreServiceProtocol {
     let tableName = "User"
 
-    func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, Error> {
-        return Future<Void, Error> { promise in
-            let docRef = Firestore
-                .firestore()
-                .collection(self.tableName)
-                .document(userID)
-            
-            do {
-                try docRef.setData(from: user)
-                promise(.success(()))
-            } catch {
-                promise(.failure(error))
-            }
-        }.eraseToAnyPublisher()
+    func saveUserInDatabase(userID: String, user: User) throws {
+        let docRef = Firestore
+            .firestore()
+            .collection(self.tableName)
+            .document(userID)
+
+        try docRef.setData(from: user)
     }
     
     func fetchUser(userID: String) -> AnyPublisher<User, Error> {
