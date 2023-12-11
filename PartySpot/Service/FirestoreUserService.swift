@@ -11,47 +11,39 @@ import FirebaseFirestoreSwift
 
 // MARK: - PROTOCOL
 protocol FirestoreServiceProtocol {
-    func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, Error>
-    func fetchUser(userID: String) -> AnyPublisher<User, Error>
+    typealias UserSaved = Bool
+    
+    //func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, FirestoreUserService.Error>
+    func saveUser(userID: String, user: User) throws
+    func fetchUser(userID: String) -> AnyPublisher<User, FirestoreUserService.Error>
 }
 
 // MARK: - CLASS
-class FirestoreService: FirestoreServiceProtocol {
-    let tableName = "User"
-
-    func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, Error> {
-        return Future<Void, Error> { promise in
-            let docRef = Firestore
-                .firestore()
-                .collection(self.tableName)
-                .document(userID)
-            
-            do {
-                try docRef.setData(from: user)
-                promise(.success(()))
-            } catch {
-                promise(.failure(error))
-            }
-        }.eraseToAnyPublisher()
+final class FirestoreUserService: FirestoreServiceProtocol {
+    private static let tableName = "User"
+    
+    func saveUser(userID: String, user: User) throws {
+        let docRef = Firestore
+            .firestore()
+            .collection(Self.tableName)
+            .document(userID)
+        
+            try docRef.setData(from: user)
     }
     
-    func fetchUser(userID: String) -> AnyPublisher<User, Error> {
+    func fetchUser(userID: String) -> AnyPublisher<User, FirestoreUserService.Error> {
         return Future<User, Error> { promise in
-            let docRef = Firestore.firestore().collection(self.tableName).document(userID)
+            let docRef = Firestore.firestore().collection(Self.tableName).document(userID)
+
             docRef.getDocument { documentSnapshot, error in
                 
-                /*if let error = error {
-                    promise(.failure(error))
-                    return
-                }*/
-                
                 if error != nil {
-                    promise(.failure(FirestoreError.defaultError))
+                    promise(.failure(Error.defaultError))
                     return
                 }
                 
                 guard let documentSnapshot = documentSnapshot else {
-                    promise(.failure(FirestoreError.documentNotFound))
+                    promise(.failure(Error.documentNotFound))
                     return
                 }
                 
@@ -60,16 +52,16 @@ class FirestoreService: FirestoreServiceProtocol {
                     promise(.success(user))
                 } catch {
                     print(error)
-                    promise(.failure(FirestoreError.invalidUserData))
+                    promise(.failure(Error.invalidUserData))
                 }
             }
         }.eraseToAnyPublisher()
     }
 }
 
-extension FirestoreService {
+extension FirestoreUserService {
     // MARK: - ERROR HANDLING
-    enum FirestoreError: Error {
+    enum Error: Swift.Error {
         case documentNotFound
         case invalidUserData
         case defaultError
@@ -86,4 +78,3 @@ extension FirestoreService {
         }
     }
 }
-

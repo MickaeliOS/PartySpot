@@ -26,7 +26,7 @@ final class CreatePartyViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - INIT
-    init(firestoreService: FirestoreServiceProtocol = FirestoreService()) {
+    init(firestoreService: FirestoreServiceProtocol = FirestoreUserService()) {
         self.firestoreService = firestoreService
     }
     

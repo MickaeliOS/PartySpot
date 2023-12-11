@@ -11,16 +11,14 @@ import Combine
 final class CreateAccountViewModel: ObservableObject {
     
     // MARK: - INPUT & OUTPUT
-    enum Input {
-        case createAccountButtonDidTap
-        case saveUser(userID: String)
+    enum Input: Equatable {
+        case createAccountProcessButtonTapped
     }
     
     enum Output {
-        case createAccountDidSucceed(userID: String)
-        case createAccountDidFail(error: Error)
-        case saveUserInDatabaseDidFail(error: Error)
-        case saveUserInDatabaseDidSucceed(user: User)
+        case idle
+        case accountCreationDidSucceed(user: User)
+        case accountCreationDidFailed(Error)
     }
     
     // MARK: - PROPERTIES
@@ -30,24 +28,27 @@ final class CreateAccountViewModel: ObservableObject {
     var birthdate: Date = Date.now
     var email: String = ""
     var password: String = ""
+    //@Published var email: String = ""
+    //@Published var password: String = ""
     var confirmPassword: String = ""
 
     private let authService: FirebaseAuthServiceProtocol
     private let firestoreService: FirestoreServiceProtocol
     private let output: PassthroughSubject<Output, Never> = .init()
-    private var cancellables = Set<AnyCancellable>()
+    //@Published private(set) var output: Output = .idle
+    private var subscriptions = Set<AnyCancellable>()
     
     var hasEmptyField: Bool {
-        if email.isReallyEmpty || password.isReallyEmpty || confirmPassword.isReallyEmpty || lastname.isReallyEmpty || firstname.isReallyEmpty {
-            return true
-        }
-        
-        return false
+        return email.isReallyEmpty
+        || password.isReallyEmpty
+        || confirmPassword.isReallyEmpty
+        || lastname.isReallyEmpty
+        || firstname.isReallyEmpty
     }
     
     // MARK: - INIT
     init(authService: FirebaseAuthServiceProtocol = FirebaseAuthService(),
-         firestoreService: FirestoreServiceProtocol = FirestoreService()) {
+         firestoreService: FirestoreServiceProtocol = FirestoreUserService()) {
         
         self.authService = authService
         self.firestoreService = firestoreService
@@ -56,50 +57,45 @@ final class CreateAccountViewModel: ObservableObject {
     // MARK: - FUNCTIONS
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
-            .sink { [weak self] event in
-                switch event {
-                case .createAccountButtonDidTap:
-                    self?.handleCreateAccount()
-                    
-                case .saveUser(let userID):
-                    self?.handleSaveUserInDatabase(userID: userID)
+            .flatMap { [weak self] _ -> AnyPublisher<String, Error> in
+                guard let self = self else {
+                    return Fail(error: FirestoreUserService.Error.defaultError).eraseToAnyPublisher()
                 }
+                
+                return self.authService.createAccount(email: self.email, password: self.password)
             }
-            .store(in: &cancellables)
-            return output.eraseToAnyPublisher()
-    }
-    
-    private func handleCreateAccount() {
-        authService.createAccount(email: email, password: password)
-            .sink { [weak self] completion in
-                if case .failure(let error) = completion {
-                    self?.output.send(.createAccountDidFail(error: error))
+            .tryMap { [weak self] userID -> Output in
+                guard let self = self else {
+                    throw FirestoreUserService.Error.defaultError
                 }
-            } receiveValue: { [weak self] userID in
-                self?.output.send(.createAccountDidSucceed(userID: userID))
+                
+                let user = try self.saveUserInDatabase(userID: userID)
+                
+                return .accountCreationDidSucceed(user: user)
             }
-            .store(in: &cancellables)
-    }
-    
-    private func handleSaveUserInDatabase(userID: String) {
-        let user = User(lastname: lastname,
-                        firstname: firstname,
-                        email: email,
-                        birthdate: birthdate,
-                        gender: gender)
+            .catch { Just(Output.accountCreationDidFailed($0)) }
+            .sink { output in
+                self.output.send(output)
+            }
+            .store(in: &subscriptions)
         
-        firestoreService.saveUserInDatabase(userID: userID, user: user)
-            .sink { [weak self] completion in
-                if case .failure(let error) = completion {
-                    self?.output.send(.saveUserInDatabaseDidFail(error: error))
-                }
-            } receiveValue: { [weak self] in
-                self?.output.send(.saveUserInDatabaseDidSucceed(user: user))
-            }
-            .store(in: &cancellables)
+        return output.eraseToAnyPublisher()
     }
     
-    func formCheck() throws {
+    private func saveUserInDatabase(userID: String) throws -> User {
+        let user = User(
+            lastname: lastname,
+            firstname: firstname,
+            email: email,
+            birthdate: birthdate,
+            gender: gender
+        )
+        
+        try firestoreService.saveUser(userID: userID, user: user)
+        return user
+    }
+    
+    func validateForm() throws {
         guard !hasEmptyField else {
             throw CreationFormError.emptyFields
         }

@@ -21,10 +21,10 @@ final class CreateAccountViewController: UIViewController {
     
     // MARK: - PROPERTIES
     weak var userDelegate: UserDelegate?
-    private var viewModel = CreateAccountViewModel()
-    private var cancellables = Set<AnyCancellable>()
+    private let viewModel = CreateAccountViewModel()
+    private var subscriptions = Set<AnyCancellable>()
     
-    let unwindToRootVC = "unwindToRootVC"
+    private static let unwindToRootVCSegueID = "unwindToRootVCSegueID"
     private let input: PassthroughSubject<CreateAccountViewModel.Input, Never> = .init()
     
     // MARK: - VIEW LIFE CYCLE
@@ -38,8 +38,8 @@ final class CreateAccountViewController: UIViewController {
     // MARK: - ACTIONS
     @IBAction private func createAccountButtonTapped(_ sender: Any) {
         do {
-            try viewModel.formCheck()
-            input.send(.createAccountButtonDidTap)
+            try viewModel.validateForm()
+            input.send(.createAccountProcessButtonTapped)
         } catch let error as CreationFormError {
             presentErrorAlert(with: error.errorDescription)
         } catch {
@@ -70,25 +70,21 @@ final class CreateAccountViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
                 switch event {
-                case .createAccountDidSucceed(let userID):
-                    self?.input.send(.saveUser(userID: userID))
-                    
-                case .createAccountDidFail(let error):
+                case .accountCreationDidFailed(let error):
                     if let error = error as? FirebaseAuthServiceError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                     
-                case .saveUserInDatabaseDidSucceed(let user):
-                    self?.userDelegate?.saveUserLocally(user: user)
-                    self?.performSegue(withIdentifier: self?.unwindToRootVC ?? "unwindToRootVC", sender: user)
+                case .idle:
+                    break
                     
-                case .saveUserInDatabaseDidFail(let error):
-                    if let error = error as? FirestoreService.FirestoreError {
-                        self?.presentErrorAlert(with: error.errorDescription)
-                    }
+                case .accountCreationDidSucceed(let user):
+                    self?.userDelegate?.saveUserLocally(user: user) // déplacer dans le VM
+                    self?.performSegue(withIdentifier: Self.unwindToRootVCSegueID, sender: user)
+                    
                 }
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
     }
     
     private func bindOutlets() {
@@ -104,7 +100,7 @@ final class CreateAccountViewController: UIViewController {
             .publisher(for: UITextField.textDidChangeNotification, object: textField)
             .compactMap { ($0.object as? UITextField)?.text }
             .assign(to: keyPath, on: viewModel)
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
     }
     
     private func setupTextFields() {

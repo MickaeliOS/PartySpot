@@ -10,13 +10,13 @@ import Combine
 
 // MARK: - PROTOCOL
 protocol FirebaseAuthServiceProtocol {
-    func createAccount(email: String, password: String) -> Future<String, Error>
-    func signIn(email: String, password: String) -> Future<String, Error>
+    func createAccount(email: String, password: String) -> AnyPublisher<String, Error>
+    func signIn(email: String, password: String) -> AnyPublisher<String, Error>
 }
 
 // MARK: - CLASS
 final class FirebaseAuthService: FirebaseAuthServiceProtocol {
-    func createAccount(email: String, password: String) -> Future<String, Error> {
+    func createAccount(email: String, password: String) -> AnyPublisher<String, Error> {
         return Future { promise in
             Task {
                 do {
@@ -28,9 +28,10 @@ final class FirebaseAuthService: FirebaseAuthServiceProtocol {
                 }
             }
         }
+        .eraseToAnyPublisher()
     }
     
-    func signIn(email: String, password: String) -> Future<String, Error> {
+    func signIn(email: String, password: String) -> AnyPublisher<String, Error> {
         return Future { promise in
             Task {
                 do {
@@ -41,6 +42,7 @@ final class FirebaseAuthService: FirebaseAuthServiceProtocol {
                 }
             }
         }
+        .eraseToAnyPublisher()
     }
     
     private func handleFirebaseError(_ error: Error) -> FirebaseAuthServiceError {

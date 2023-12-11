@@ -29,7 +29,7 @@ class LoginViewModel: ObservableObject {
     var email = ""
     var password = ""
     private var authService: FirebaseAuthServiceProtocol
-    private var cancellables = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     private let firestoreService: FirestoreServiceProtocol
     private let output: PassthroughSubject<Output, Never> = .init()
     
@@ -43,7 +43,7 @@ class LoginViewModel: ObservableObject {
 
     // MARK: - INIT
     init(authService: FirebaseAuthServiceProtocol = FirebaseAuthService(),
-         firestoreService: FirestoreServiceProtocol = FirestoreService()) {
+         firestoreService: FirestoreServiceProtocol = FirestoreUserService()) {
         self.authService = authService
         self.firestoreService = firestoreService
     }
@@ -60,7 +60,7 @@ class LoginViewModel: ObservableObject {
                     self?.handleFetchUser(userID: userID)
                 }
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
             return output.eraseToAnyPublisher()
     }
     
@@ -83,7 +83,7 @@ class LoginViewModel: ObservableObject {
             } receiveValue: { [weak self] userID in
                 self?.output.send(.signInDidSucceed(userID: userID))
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
     }
     
     private func handleFetchUser(userID: String) {
@@ -95,7 +95,7 @@ class LoginViewModel: ObservableObject {
             } receiveValue: { [weak self] user in
                 self?.output.send(.fetchUserDidSucceed(user: user))
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
     }
 }
 

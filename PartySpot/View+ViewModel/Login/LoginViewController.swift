@@ -17,9 +17,9 @@ final class LoginViewController: UIViewController {
     
     weak var userDelegate: UserDelegate?
     private var viewModel = LoginViewModel()
-    private var cancellables = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
-    let unwindToRootVC = "unwindToRootVC"
+    let unwindToRootVCSegueID = "unwindToRootVCSegueID"
     let segueToCreateAccountViewController = "segueToCreateAccountViewController"
     private let input: PassthroughSubject<LoginViewModel.Input, Never> = .init()
 
@@ -76,15 +76,15 @@ final class LoginViewController: UIViewController {
                     
                 case .fetchUserDidSucceed(let user):
                     self?.userDelegate?.saveUserLocally(user: user)
-                    self?.performSegue(withIdentifier: self?.unwindToRootVC ?? "unwindToRootVC", sender: nil)
+                    self?.performSegue(withIdentifier: self?.unwindToRootVCSegueID ?? "unwindToRootVC", sender: nil)
                     
                 case .fetchUserDidFail(let error):
-                    if let error = error as? FirestoreService.FirestoreError {
+                    if let error = error as? FirestoreUserService.Error {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                 }
             }
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
     }
     
     private func outletsBind() {
@@ -97,7 +97,7 @@ final class LoginViewController: UIViewController {
             .publisher(for: UITextField.textDidChangeNotification, object: textField)
             .compactMap { ($0.object as? UITextField)?.text }
             .assign(to: keyPath, on: viewModel)
-            .store(in: &cancellables)
+            .store(in: &subscriptions)
     }
     
     @objc func togglePasswordVisibility(_ sender: UIButton) {

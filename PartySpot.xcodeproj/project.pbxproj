@@ -29,7 +29,7 @@
 		83DEACF32B1F33FC0058960A /* PartySpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DEACF22B1F33FC0058960A /* PartySpotTests.swift */; };
 		83DEB9C02AE083DD009A44E1 /* CreatePartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DEB9BF2AE083DD009A44E1 /* CreatePartyViewController.swift */; };
 		83DEB9C32AE083F1009A44E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DEB9C22AE083F1009A44E1 /* ProfileViewController.swift */; };
-		83DEB9C82AE14750009A44E1 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DEB9C72AE14750009A44E1 /* FirestoreService.swift */; };
+		83DEB9C82AE14750009A44E1 /* FirestoreUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DEB9C72AE14750009A44E1 /* FirestoreUserService.swift */; };
 		83DEB9CE2AE150B3009A44E1 /* CreatePartyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DEB9CD2AE150B3009A44E1 /* CreatePartyViewModel.swift */; };
 		83DEB9D02AE156C7009A44E1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DEB9CF2AE156C7009A44E1 /* TabBarViewController.swift */; };
 		83DEB9FE2AEBD890009A44E1 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DEB9FD2AEBD890009A44E1 /* UserViewModel.swift */; };
@@ -68,7 +68,7 @@
 		83DEACF22B1F33FC0058960A /* PartySpotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySpotTests.swift; sourceTree = "<group>"; };
 		83DEB9BF2AE083DD009A44E1 /* CreatePartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyViewController.swift; sourceTree = "<group>"; };
 		83DEB9C22AE083F1009A44E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		83DEB9C72AE14750009A44E1 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		83DEB9C72AE14750009A44E1 /* FirestoreUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUserService.swift; sourceTree = "<group>"; };
 		83DEB9CD2AE150B3009A44E1 /* CreatePartyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyViewModel.swift; sourceTree = "<group>"; };
 		83DEB9CF2AE156C7009A44E1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		83DEB9FD2AEBD890009A44E1 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				83603C0A2ADD20CD00EA47F1 /* FirebaseAuthService.swift */,
-				83DEB9C72AE14750009A44E1 /* FirestoreService.swift */,
+				83DEB9C72AE14750009A44E1 /* FirestoreUserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 				83F4CB912B21C371009ADF55 /* UITextFieldExtension.swift in Sources */,
 				83F4CB932B21C386009ADF55 /* UIButtonExtension.swift in Sources */,
 				83603C112ADD6FFC00EA47F1 /* CreateAccountViewController.swift in Sources */,
-				83DEB9C82AE14750009A44E1 /* FirestoreService.swift in Sources */,
+				83DEB9C82AE14750009A44E1 /* FirestoreUserService.swift in Sources */,
 				83603C0B2ADD20CD00EA47F1 /* FirebaseAuthService.swift in Sources */,
 				83F4CB8F2B21C35F009ADF55 /* UIViewControllerExtension.swift in Sources */,
 				83F4CB8D2B21C348009ADF55 /* StringExtension.swift in Sources */,
