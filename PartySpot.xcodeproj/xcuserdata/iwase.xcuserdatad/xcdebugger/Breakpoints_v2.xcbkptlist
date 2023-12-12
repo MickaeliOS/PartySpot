@@ -3,4 +3,1279 @@
    uuid = "EF739ECA-7BF7-4A11-917C-BF3267A0EDC4"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "252C2959-544A-4067-87AF-B4FBE89CF038"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "handleFirebaseError(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "252C2959-544A-4067-87AF-B4FBE89CF038 - 3bfafb2066dcd0bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(PartySpot.FirebaseAuthService.Error) -&gt; PartySpot.FirebaseAuthService.Error"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "252C2959-544A-4067-87AF-B4FBE89CF038 - a11d7d55e831c149"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(Swift.Error) -&gt; PartySpot.FirebaseAuthService.AuthError"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "252C2959-544A-4067-87AF-B4FBE89CF038 - 3bfafb2066dcd0da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(PartySpot.FirebaseAuthService.Error) -&gt; PartySpot.FirebaseAuthService.Error"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E90E7AB-7A10-45EB-9906-104694E99110"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E90E7AB-7A10-45EB-9906-104694E99110 - 96d46ba9d6bbfbae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "8E90E7AB-7A10-45EB-9906-104694E99110 - e49a36c6c39759af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "8E90E7AB-7A10-45EB-9906-104694E99110 - 96d46ba9d6bbfbae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  uuid = "8E90E7AB-7A10-45EB-9906-104694E99110 - e49a36c6c39759af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "8E90E7AB-7A10-45EB-9906-104694E99110 - b2ec84f4aaa97712"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "8E90E7AB-7A10-45EB-9906-104694E99110 - 82a4bc3c0187d51d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "8E90E7AB-7A10-45EB-9906-104694E99110 - 96d46ba9d6bbfbcf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "8E90E7AB-7A10-45EB-9906-104694E99110 - e49a36c6c39759ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "176">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BCCF679-6E49-4398-A997-32ED3DA71513"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4BCCF679-6E49-4398-A997-32ED3DA71513 - e71e5d8402d268a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "4BCCF679-6E49-4398-A997-32ED3DA71513 - e71e5d8402d268a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "4BCCF679-6E49-4398-A997-32ED3DA71513 - 29d06b419c91b649"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "4BCCF679-6E49-4398-A997-32ED3DA71513 - e71e5d8402d26f46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB - e71e5d8402d26884"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB - 69ba6b08aa17b5db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB - e71e5d8402d26884"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB - 69ba6b08aa17b5db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB - 29d06b419c91b1a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB - a101db63b95e4d4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB - e71e5d8402d268a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "6B842DEC-EEB2-459C-B04F-A2D0817595AB - 69ba6b08aa17b5f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "248">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - aa78b0762c52bfee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - 68aa0b11c86994e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - 96d46ba9d6bbfbec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - e49a36c6c39759ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - aa78b0762c52bfee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - 96d46ba9d6bbfbec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - e49a36c6c39759ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - d25c376b44463bd2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - 6969a1af75a41420"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - b2ec84f4aaa977d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - 82a4bc3c0187d5df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - aa78b0762c52bf0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - 68aa0b11c8699404"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - 96d46ba9d6bbfb0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "FAA3AECC-6D06-442A-8C1B-99DD2C4D56F0 - e49a36c6c397590c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B3365EC-6CAF-42C4-9E87-6610F9E767F6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7B3365EC-6CAF-42C4-9E87-6610F9E767F6 - e49a36c6c3975988"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "7B3365EC-6CAF-42C4-9E87-6610F9E767F6 - e49a36c6c3975869"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "7B3365EC-6CAF-42C4-9E87-6610F9E767F6 - e49a36c6c3975869"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "392">
+               </Location>
+               <Location
+                  uuid = "7B3365EC-6CAF-42C4-9E87-6610F9E767F6 - 82a4bc3c0187d57c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "7B3365EC-6CAF-42C4-9E87-6610F9E767F6 - e49a36c6c39759af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "320">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30916689-67C2-4E84-961D-75D25CFD362E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "30916689-67C2-4E84-961D-75D25CFD362E - 96d46ba9d6bbfbcf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "30916689-67C2-4E84-961D-75D25CFD362E - 96d46ba9d6bbfbcf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "30916689-67C2-4E84-961D-75D25CFD362E - b2ec84f4aaa97731"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.AuthError&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "30916689-67C2-4E84-961D-75D25CFD362E - 96d46ba9d6bbfbec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #1 ((Swift.Result&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;) -&gt; ()) -&gt; () in PartySpot.FirebaseAuthService.signIn(email: Swift.String, password: Swift.String) -&gt; Combine.AnyPublisher&lt;Swift.String, PartySpot.FirebaseAuthService.Error&gt;"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1DD96F5-94E2-4120-83B8-9D5CD46A6CE8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "handleFirebaseError(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B1DD96F5-94E2-4120-83B8-9D5CD46A6CE8 - 3bfafb2066dcd09c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(PartySpot.FirebaseAuthService.Error) -&gt; PartySpot.FirebaseAuthService.Error"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "B1DD96F5-94E2-4120-83B8-9D5CD46A6CE8 - a11d7d55e831c128"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(Swift.Error) -&gt; PartySpot.FirebaseAuthService.AuthError"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "B1DD96F5-94E2-4120-83B8-9D5CD46A6CE8 - 3bfafb2066dcd0bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(PartySpot.FirebaseAuthService.Error) -&gt; PartySpot.FirebaseAuthService.Error"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F83DA35-3167-470E-B935-FB4FE088B5A5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "handleFirebaseError(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5F83DA35-3167-470E-B935-FB4FE088B5A5 - 3bfafb2066dcd35e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(PartySpot.FirebaseAuthService.Error) -&gt; PartySpot.FirebaseAuthService.Error"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "5F83DA35-3167-470E-B935-FB4FE088B5A5 - a11d7d55e831c2ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(Swift.Error) -&gt; PartySpot.FirebaseAuthService.AuthError"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "5F83DA35-3167-470E-B935-FB4FE088B5A5 - 3bfafb2066dcd37d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(PartySpot.FirebaseAuthService.Error) -&gt; PartySpot.FirebaseAuthService.Error"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9EDE4E6-58F6-46C6-A9F8-5C895D7AB992"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "signinButtonTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0161E6AC-1000-4C1C-AE2F-E4B17545130C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "signinButtonTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7DA7D90F-79E6-45E6-9762-20D0A5B20CE0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "transform(input:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2F7BEB1-8405-49B4-B889-25BD2A1C018C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "transform(input:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E053CFD8-0B30-44CA-8BEB-106463F803B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "transform(input:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F35ED89-F46A-4404-A328-B46F69EE76F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "authenticate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2773273F-970C-44CD-9C1B-32DAC6CB8BC7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "authenticate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A243DE0-F349-4D6C-AA57-09F9281D6C39"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "authenticate()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1A243DE0-F349-4D6C-AA57-09F9281D6C39 - 36605ab398da5396"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.LoginViewModel.authenticate() -&gt; ()"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "1A243DE0-F349-4D6C-AA57-09F9281D6C39 - b89c1f1d7fb9aa0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;PartySpot.FirebaseAuthService.Error&gt;) -&gt; () in PartySpot.LoginViewModel.authenticate() -&gt; ()"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "1A243DE0-F349-4D6C-AA57-09F9281D6C39 - 35aa4bc428f8a10"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; () in PartySpot.LoginViewModel.authenticate() -&gt; ()"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E410F1A9-BDF6-4F89-885F-E104D187FC5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "authenticate()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E410F1A9-BDF6-4F89-885F-E104D187FC5E - b89c1f1d7fb9aa68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;PartySpot.FirebaseAuthService.Error&gt;) -&gt; () in PartySpot.LoginViewModel.authenticate() -&gt; ()"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "E410F1A9-BDF6-4F89-885F-E104D187FC5E - b89c1f1d7fb9aa68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;PartySpot.FirebaseAuthService.Error&gt;) -&gt; () in PartySpot.LoginViewModel.authenticate() -&gt; ()"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "E410F1A9-BDF6-4F89-885F-E104D187FC5E - b89c1f1d7fb9aa68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;PartySpot.FirebaseAuthService.Error&gt;) -&gt; () in PartySpot.LoginViewModel.authenticate() -&gt; ()"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "E410F1A9-BDF6-4F89-885F-E104D187FC5E - 35aa4bc428f8a73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; () in PartySpot.LoginViewModel.authenticate() -&gt; ()"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "E410F1A9-BDF6-4F89-885F-E104D187FC5E - 35aa4bc428f8a73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;PartySpot.FirebaseAuthService.AuthError&gt;) -&gt; () in PartySpot.LoginViewModel.authenticate() -&gt; ()"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/View+ViewModel/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C61A1ABF-4D98-4E45-9CFD-41248A242B9B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartySpot/Service/FirebaseAuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "handleFirebaseError(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C61A1ABF-4D98-4E45-9CFD-41248A242B9B - 3bfafb2066dcd35e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(PartySpot.FirebaseAuthService.Error) -&gt; PartySpot.FirebaseAuthService.Error"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "560">
+               </Location>
+               <Location
+                  uuid = "C61A1ABF-4D98-4E45-9CFD-41248A242B9B - a11d7d55e831c2cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartySpot.FirebaseAuthService.handleFirebaseError(Swift.Error) -&gt; PartySpot.FirebaseAuthService.AuthError"
+                  moduleName = "PartySpot"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iwase/Desktop/Dev/iOS/UIKit/PartySpot/PartySpot/Service/FirebaseAuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "520">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

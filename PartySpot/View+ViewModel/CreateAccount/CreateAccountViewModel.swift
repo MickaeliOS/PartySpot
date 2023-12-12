@@ -12,11 +12,10 @@ final class CreateAccountViewModel: ObservableObject {
     
     // MARK: - INPUT & OUTPUT
     enum Input: Equatable {
-        case createAccountProcessButtonTapped
+        case createAccountButtonTapped
     }
     
     enum Output {
-        case idle
         case accountCreationDidSucceed(user: User)
         case accountCreationDidFailed(Error)
     }
@@ -28,14 +27,11 @@ final class CreateAccountViewModel: ObservableObject {
     var birthdate: Date = Date.now
     var email: String = ""
     var password: String = ""
-    //@Published var email: String = ""
-    //@Published var password: String = ""
     var confirmPassword: String = ""
 
     private let authService: FirebaseAuthServiceProtocol
     private let firestoreService: FirestoreServiceProtocol
     private let output: PassthroughSubject<Output, Never> = .init()
-    //@Published private(set) var output: Output = .idle
     private var subscriptions = Set<AnyCancellable>()
     
     var hasEmptyField: Bool {
@@ -57,9 +53,9 @@ final class CreateAccountViewModel: ObservableObject {
     // MARK: - FUNCTIONS
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
-            .flatMap { [weak self] _ -> AnyPublisher<String, Error> in
+            .flatMap { [weak self] _ -> AnyPublisher<String, FirebaseAuthService.AuthError> in
                 guard let self = self else {
-                    return Fail(error: FirestoreUserService.Error.defaultError).eraseToAnyPublisher()
+                    return Fail(error: FirebaseAuthService.AuthError.defaultError).eraseToAnyPublisher()
                 }
                 
                 return self.authService.createAccount(email: self.email, password: self.password)
@@ -83,6 +79,7 @@ final class CreateAccountViewModel: ObservableObject {
     }
     
     private func saveUserInDatabase(userID: String) throws -> User {
+        // TODO: Idéalement, ne renvoie pas l'user que tu as déjà mais plutôt celui qui est sur Firestore car imagine s'il y a une différence entre l'user qui vient d'être créé et celui de ton app.
         let user = User(
             lastname: lastname,
             firstname: firstname,
@@ -90,7 +87,7 @@ final class CreateAccountViewModel: ObservableObject {
             birthdate: birthdate,
             gender: gender
         )
-        
+                
         try firestoreService.saveUser(userID: userID, user: user)
         return user
     }

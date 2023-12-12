@@ -39,7 +39,7 @@ final class CreateAccountViewController: UIViewController {
     @IBAction private func createAccountButtonTapped(_ sender: Any) {
         do {
             try viewModel.validateForm()
-            input.send(.createAccountProcessButtonTapped)
+            input.send(.createAccountButtonTapped)
         } catch let error as CreationFormError {
             presentErrorAlert(with: error.errorDescription)
         } catch {
@@ -71,12 +71,13 @@ final class CreateAccountViewController: UIViewController {
             .sink { [weak self] event in
                 switch event {
                 case .accountCreationDidFailed(let error):
-                    if let error = error as? FirebaseAuthServiceError {
+                    if let error = error as? FirebaseAuthService.AuthError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                     
-                case .idle:
-                    break
+                    if let error = error as? FirestoreUserService.Error {
+                        self?.presentErrorAlert(with: error.errorDescription)
+                    }
                     
                 case .accountCreationDidSucceed(let user):
                     self?.userDelegate?.saveUserLocally(user: user) // déplacer dans le VM

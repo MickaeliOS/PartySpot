@@ -11,9 +11,6 @@ import FirebaseFirestoreSwift
 
 // MARK: - PROTOCOL
 protocol FirestoreServiceProtocol {
-    typealias UserSaved = Bool
-    
-    //func saveUserInDatabase(userID: String, user: User) -> AnyPublisher<Void, FirestoreUserService.Error>
     func saveUser(userID: String, user: User) throws
     func fetchUser(userID: String) -> AnyPublisher<User, FirestoreUserService.Error>
 }
@@ -51,7 +48,6 @@ final class FirestoreUserService: FirestoreServiceProtocol {
                     let user = try documentSnapshot.data(as: User.self)
                     promise(.success(user))
                 } catch {
-                    print(error)
                     promise(.failure(Error.invalidUserData))
                 }
             }

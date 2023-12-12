@@ -28,7 +28,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupTextFields()
         outletsBind()
-        bind()
+        bindToViewModel()
     }
     
     // MARK: - ACTIONS
@@ -59,7 +59,7 @@ final class LoginViewController: UIViewController {
         passwordTextField.addLeftSystemImage(image: passwordLockImage)
     }
     
-    private func bind() {
+    private func bindToViewModel() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
 
         output
@@ -70,7 +70,7 @@ final class LoginViewController: UIViewController {
                     self?.input.send(.fetchUser(userID: userID))
                     
                 case .signInDidFail(let error):
-                    if let error = error as? FirebaseAuthServiceError {
+                    if let error = error as? FirebaseAuthService.AuthError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                     

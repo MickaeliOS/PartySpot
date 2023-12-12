@@ -10,19 +10,23 @@ import Combine
 
 // MARK: - PROTOCOL
 protocol FirebaseAuthServiceProtocol {
-    func createAccount(email: String, password: String) -> AnyPublisher<String, Error>
-    func signIn(email: String, password: String) -> AnyPublisher<String, Error>
+    typealias UserID = String
+    
+    func createAccount(email: String, password: String) -> AnyPublisher<UserID, FirebaseAuthService.AuthError>
+    func signIn(email: String, password: String) -> AnyPublisher<UserID, FirebaseAuthService.AuthError>
 }
 
 // MARK: - CLASS
 final class FirebaseAuthService: FirebaseAuthServiceProtocol {
-    func createAccount(email: String, password: String) -> AnyPublisher<String, Error> {
-        return Future { promise in
+    func createAccount(email: String, password: String) -> AnyPublisher<UserID, FirebaseAuthService.AuthError> {
+        return Future<UserID, FirebaseAuthService.AuthError> { promise in
             Task {
                 do {
                     let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
                     let userID = authDataResult.user.uid
                     promise(.success((userID)))
+                    
+                    // Si je ne suis pas explicite sur le type de l'erreur, Xcode s'entête à me dire qu'il attend un argument de type FirebaseAuthService.Error pour la fonction handleFirebaseError(), ce qui pour moi n'a aucun sens car elle attends une Error.
                 } catch {
                     promise(.failure(self.handleFirebaseError(error)))
                 }
@@ -31,8 +35,8 @@ final class FirebaseAuthService: FirebaseAuthServiceProtocol {
         .eraseToAnyPublisher()
     }
     
-    func signIn(email: String, password: String) -> AnyPublisher<String, Error> {
-        return Future { promise in
+    func signIn(email: String, password: String) -> AnyPublisher<UserID, FirebaseAuthService.AuthError> {
+        return Future<UserID, FirebaseAuthService.AuthError> { promise in
             Task {
                 do {
                     let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
@@ -45,7 +49,7 @@ final class FirebaseAuthService: FirebaseAuthServiceProtocol {
         .eraseToAnyPublisher()
     }
     
-    private func handleFirebaseError(_ error: Error) -> FirebaseAuthServiceError {
+    private func handleFirebaseError(_ error: Error) -> FirebaseAuthService.AuthError {
         let nsError = error as NSError
         
         if nsError.userInfo["NSUnderlyingError"].debugDescription.contains("INVALID_LOGIN_CREDENTIALS") {
@@ -58,22 +62,22 @@ final class FirebaseAuthService: FirebaseAuthServiceProtocol {
     }
 }
 
-// MARK: - ERROR HANDLING
-enum FirebaseAuthServiceError: Error {
-    case invalidCredentials
-    case networkError
-    case defaultError
-}
-
-extension FirebaseAuthServiceError {
-    var errorDescription: String {
-        switch self {
-        case .invalidCredentials:
-            return "Incorrect email or password."
-        case .networkError:
-            return "Please verify your network."
-        case .defaultError:
-            return "An error occured."
+extension FirebaseAuthService {
+    // MARK: - ERROR HANDLING
+    enum AuthError: Error {
+        case invalidCredentials
+        case networkError
+        case defaultError
+        
+        var errorDescription: String {
+            switch self {
+            case .invalidCredentials:
+                return "Incorrect email or password."
+            case .networkError:
+                return "Please verify your network."
+            case .defaultError:
+                return "An error occured."
+            }
         }
     }
 }
