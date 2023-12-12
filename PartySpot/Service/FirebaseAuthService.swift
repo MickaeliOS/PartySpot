@@ -60,6 +60,7 @@ final class FirebaseAuthService: FirebaseAuthServiceProtocol {
     }
 }
 
+// Question about error handling
 extension FirebaseAuthService {
     // MARK: - ERROR HANDLING
     enum AuthError: Error {
