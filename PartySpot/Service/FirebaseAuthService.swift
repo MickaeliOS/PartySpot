@@ -25,8 +25,6 @@ final class FirebaseAuthService: FirebaseAuthServiceProtocol {
                     let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
                     let userID = authDataResult.user.uid
                     promise(.success((userID)))
-                    
-                    // Si je ne suis pas explicite sur le type de l'erreur, Xcode s'entête à me dire qu'il attend un argument de type FirebaseAuthService.Error pour la fonction handleFirebaseError(), ce qui pour moi n'a aucun sens car elle attends une Error.
                 } catch {
                     promise(.failure(self.handleFirebaseError(error)))
                 }
