@@ -61,11 +61,11 @@ final class CreateAccountViewController: UIViewController {
     @IBAction private func closeButtonDidTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
+
     // MARK: - FUNCTIONS
     private func bindToViewModel() {
         let output = viewModel.transform(input: input.eraseToAnyPublisher())
-        
+
         output
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
@@ -75,14 +75,13 @@ final class CreateAccountViewController: UIViewController {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                     
-                    if let error = error as? FirestoreUserService.Error {
+                    if let error = error as? FirestoreService.FirestoreServiceError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
-                    
+
                 case .accountCreationDidSucceed(let user):
                     self?.userDelegate?.saveUserLocally(user: user) // déplacer dans le VM
                     self?.performSegue(withIdentifier: Self.unwindToRootVCSegueID, sender: user)
-                    
                 }
             }
             .store(in: &subscriptions)

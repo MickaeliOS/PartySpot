@@ -66,20 +66,12 @@ final class LoginViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
                 switch event {
-                case .signInDidSucceed(let userID):
-                    self?.input.send(.fetchUser(userID: userID))
-                    
-                case .signInDidFail(let error):
-                    if let error = error as? FirebaseAuthService.AuthError {
-                        self?.presentErrorAlert(with: error.errorDescription)
-                    }
-                    
                 case .fetchUserDidSucceed(let user):
                     self?.userDelegate?.saveUserLocally(user: user)
                     self?.performSegue(withIdentifier: self?.unwindToRootVCSegueID ?? "unwindToRootVC", sender: nil)
                     
                 case .fetchUserDidFail(let error):
-                    if let error = error as? FirestoreUserService.Error {
+                    if let error = error as? FirebaseAuthService.AuthError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                 }

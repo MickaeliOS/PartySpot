@@ -57,7 +57,7 @@ final class CreatePartyViewController: UIViewController {
                     self?.dataSource.userViewModel.user = user
                     
                 case .fetchUserDidFailed(let error):
-                    if let error = error as? FirestoreUserService.Error {
+                    if let error = error as? FirestoreService.FirestoreServiceError {
                         self?.presentErrorAlert(with: error.errorDescription)
                     }
                 }

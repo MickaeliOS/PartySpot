@@ -41,10 +41,10 @@ final class CreateAccountViewModel: ObservableObject {
         || lastname.isReallyEmpty
         || firstname.isReallyEmpty
     }
-    
+
     // MARK: - INIT
     init(authService: FirebaseAuthServiceProtocol = FirebaseAuthService(),
-         firestoreService: FirestoreServiceProtocol = FirestoreUserService()) {
+         firestoreService: FirestoreServiceProtocol = FirestoreService()) {
         
         self.authService = authService
         self.firestoreService = firestoreService
@@ -53,31 +53,36 @@ final class CreateAccountViewModel: ObservableObject {
     // MARK: - FUNCTIONS
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
-            .flatMap { [weak self] _ -> AnyPublisher<String, FirebaseAuthService.AuthError> in
+            .filter { $0 == .createAccountButtonTapped }
+            .flatMap { [weak self] _ in
                 guard let self = self else {
-                    return Fail(error: FirebaseAuthService.AuthError.defaultError).eraseToAnyPublisher()
+                    return Just(Output.accountCreationDidFailed(FirebaseAuthService.AuthError.defaultError))
+                        .eraseToAnyPublisher()
                 }
-                
-                return self.authService.createAccount(email: self.email, password: self.password)
+
+                return authService.createAccount(email: email, password: password)
+                    .tryMap { [weak self] userID in
+                        guard let self = self else {
+                            throw FirestoreService.FirestoreServiceError.defaultError
+                        }
+
+                        let user = try saveUserInDatabase(userID: userID)
+                        return .accountCreationDidSucceed(user: user)
+                    }
+                    .catch {
+                        Just(Output.accountCreationDidFailed($0))
+                    }
+                    .eraseToAnyPublisher()
+
             }
-            .tryMap { [weak self] userID -> Output in
-                guard let self = self else {
-                    throw FirestoreUserService.Error.defaultError
-                }
-                
-                let user = try self.saveUserInDatabase(userID: userID)
-                
-                return .accountCreationDidSucceed(user: user)
-            }
-            .catch { Just(Output.accountCreationDidFailed($0)) }
-            .sink { output in
-                self.output.send(output)
-            }
+            .sink(receiveValue: { [output] value in
+                output.send(value)
+            })
             .store(in: &subscriptions)
-        
+
         return output.eraseToAnyPublisher()
     }
-    
+
     private func saveUserInDatabase(userID: String) throws -> User {
         // TODO: Idéalement, ne renvoie pas l'user que tu as déjà mais plutôt celui qui est sur Firestore car imagine s'il y a une différence entre l'user qui vient d'être créé et celui de ton app.
         let user = User(

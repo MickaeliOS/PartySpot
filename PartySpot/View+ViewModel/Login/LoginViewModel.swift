@@ -16,8 +16,6 @@ class LoginViewModel: ObservableObject {
     }
     
     enum Output {
-        case signInDidSucceed(userID: String)
-        case signInDidFail(error: Error)
         case fetchUserDidSucceed(user: User)
         case fetchUserDidFail(error: Error)
     }
@@ -43,7 +41,7 @@ class LoginViewModel: ObservableObject {
 
     // MARK: - INIT
     init(authService: FirebaseAuthServiceProtocol = FirebaseAuthService(),
-         firestoreService: FirestoreServiceProtocol = FirestoreUserService()) {
+         firestoreService: FirestoreServiceProtocol = FirestoreService()) {
         self.authService = authService
         self.firestoreService = firestoreService
     }
@@ -51,17 +49,34 @@ class LoginViewModel: ObservableObject {
     // MARK: - FUNCTIONS
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
-            .sink { [weak self] event in
-                switch event {
-                case .signInButtonDidTap:
-                    self?.authenticate()
-                    
-                case .fetchUser(let userID):
-                    self?.handleFetchUser(userID: userID)
+            .flatMap { [weak self] _ -> AnyPublisher<FirebaseAuthService.UserID, FirebaseAuthService.AuthError> in
+                guard let self = self else {
+                    return Fail(error: FirebaseAuthService.AuthError.defaultError).eraseToAnyPublisher()
                 }
+                
+                return authService.signIn(email: email, password: password)
             }
+            .catch { [weak self] authError -> AnyPublisher<FirebaseAuthService.UserID, Never> in
+                self?.output.send(.fetchUserDidFail(error: authError))
+                return Empty().eraseToAnyPublisher()
+            }
+            .flatMap { [weak self] userID -> AnyPublisher<User, FirestoreService.FirestoreServiceError> in
+                guard let self = self else {
+                    return Fail(error: FirestoreService.FirestoreServiceError.defaultError).eraseToAnyPublisher()
+                }
+                
+                return firestoreService.fetchUser(userID: userID)
+            }
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    self.output.send(.fetchUserDidFail(error: error))
+                }
+            }, receiveValue: { user in
+                self.output.send(.fetchUserDidSucceed(user: user))
+            })
             .store(in: &subscriptions)
-            return output.eraseToAnyPublisher()
+        
+        return output.eraseToAnyPublisher()
     }
     
     func formCheck() throws {
@@ -74,7 +89,7 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    private func authenticate() {
+    /*private func authenticate() {
         authService.signIn(email: email, password: password)
             .sink { [weak self] completion in
                 if case .failure(let error) = completion {
@@ -84,9 +99,9 @@ class LoginViewModel: ObservableObject {
                 self?.output.send(.signInDidSucceed(userID: userID))
             }
             .store(in: &subscriptions)
-    }
+    }*/
     
-    private func handleFetchUser(userID: String) {
+    /*private func handleFetchUser(userID: String) {
         firestoreService.fetchUser(userID: userID)
             .sink { [weak self] completion in
                 if case .failure(let error) = completion {
@@ -96,7 +111,7 @@ class LoginViewModel: ObservableObject {
                 self?.output.send(.fetchUserDidSucceed(user: user))
             }
             .store(in: &subscriptions)
-    }
+    }*/
 }
 
 // MARK: - LOGIN ERROR
