@@ -12,12 +12,11 @@ class LoginViewModel: ObservableObject {
     // MARK: - INPUT & OUTPUT
     enum Input {
         case signInButtonDidTap
-        case fetchUser(userID: String)
     }
     
     enum Output {
         case fetchUserDidSucceed(user: User)
-        case fetchUserDidFail(error: Error)
+        case fetchUserDidFail(Error)
     }
     
     // MARK: - PROPERTIES
@@ -47,38 +46,83 @@ class LoginViewModel: ObservableObject {
     }
     
     // MARK: - FUNCTIONS
+//    func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
+//        input
+//            .filter { $0 == .signInButtonDidTap }
+//            .flatMap { [weak self] _ -> AnyPublisher<FirebaseAuthService.UserID, FirebaseAuthService.AuthError> in
+//                guard let self = self else {
+//                    return Fail(error: FirebaseAuthService.AuthError.defaultError).eraseToAnyPublisher()
+//                }
+//                
+//                return authService.signIn(email: email, password: password)
+//            }
+//            .catch { [weak self] authError -> AnyPublisher<FirebaseAuthService.UserID, Never> in
+//                self?.output.send(.fetchUserDidFail(error: authError))
+//                return Empty().eraseToAnyPublisher()
+//            }
+//            .flatMap { [weak self] userID -> AnyPublisher<User, FirestoreService.FirestoreServiceError> in
+//                guard let self = self else {
+//                    return Fail(error: FirestoreService.FirestoreServiceError.defaultError).eraseToAnyPublisher()
+//                }
+//                
+//                return firestoreService.fetchUser(userID: userID)
+//            }
+//            .sink(receiveCompletion: { completion in
+//                if case .failure(let error) = completion {
+//                    self.output.send(.fetchUserDidFail(error: error))
+//                }
+//            }, receiveValue: { user in
+//                self.output.send(.fetchUserDidSucceed(user: user))
+//            })
+//            .store(in: &subscriptions)
+//        
+//        return output.eraseToAnyPublisher()
+//    }
+
     func transform(input: AnyPublisher<Input, Never>) -> AnyPublisher<Output, Never> {
         input
-            .flatMap { [weak self] _ -> AnyPublisher<FirebaseAuthService.UserID, FirebaseAuthService.AuthError> in
+            .filter { $0 == .signInButtonDidTap }
+            .flatMap { [weak self] _ in
                 guard let self = self else {
-                    return Fail(error: FirebaseAuthService.AuthError.defaultError).eraseToAnyPublisher()
+                    return Just(Output.fetchUserDidFail(FirebaseAuthService.AuthError.defaultError))
+                        .eraseToAnyPublisher()
                 }
-                
+
                 return authService.signIn(email: email, password: password)
+                    .flatMap { [weak self] userID in
+                        guard let self = self else {
+                            return Just(Output.fetchUserDidFail(FirebaseAuthService.AuthError.defaultError))
+                                .eraseToAnyPublisher()
+                        }
+
+                        return firestoreService.fetchUser(userID: userID)
+                            .flatMap { [weak self] user in
+                                guard let self else {
+                                    return Just(Output.fetchUserDidFail(FirebaseAuthService.AuthError.defaultError))
+                                        .eraseToAnyPublisher()
+                                }
+
+                                return Just(Output.fetchUserDidSucceed(user: user)).eraseToAnyPublisher()
+                            }
+                            .catch {
+                                Just(Output.fetchUserDidFail($0))
+                            }
+                            .eraseToAnyPublisher()
+                    }
+                    .catch {
+                        Just(Output.fetchUserDidFail($0))
+                    }
+                    .eraseToAnyPublisher()
             }
-            .catch { [weak self] authError -> AnyPublisher<FirebaseAuthService.UserID, Never> in
-                self?.output.send(.fetchUserDidFail(error: authError))
-                return Empty().eraseToAnyPublisher()
-            }
-            .flatMap { [weak self] userID -> AnyPublisher<User, FirestoreService.FirestoreServiceError> in
-                guard let self = self else {
-                    return Fail(error: FirestoreService.FirestoreServiceError.defaultError).eraseToAnyPublisher()
-                }
-                
-                return firestoreService.fetchUser(userID: userID)
-            }
-            .sink(receiveCompletion: { completion in
-                if case .failure(let error) = completion {
-                    self.output.send(.fetchUserDidFail(error: error))
-                }
-            }, receiveValue: { user in
-                self.output.send(.fetchUserDidSucceed(user: user))
+            .sink(receiveValue: { [output] value in
+                output.send(value)
             })
             .store(in: &subscriptions)
-        
+
         return output.eraseToAnyPublisher()
+
     }
-    
+
     func formCheck() throws {
         guard hasEmptyField == false else {
             throw LoginFormError.emptyFields

@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="78.333333333333314" width="373" height="68.333333333333314"/>
                                         <color key="textColor" name="text"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntI-vJ-14a">
                                         <rect key="frame" x="0.0" y="156.66666666666669" width="373" height="45.333333333333343"/>

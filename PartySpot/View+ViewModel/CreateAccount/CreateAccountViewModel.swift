@@ -73,7 +73,6 @@ final class CreateAccountViewModel: ObservableObject {
                         Just(Output.accountCreationDidFailed($0))
                     }
                     .eraseToAnyPublisher()
-
             }
             .sink(receiveValue: { [output] value in
                 output.send(value)
